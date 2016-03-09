@@ -18,3 +18,9 @@ Route::get('/', function()
 
 Route::get('/register', 'RegisterController@showRegister');
 Route::post('/register', 'RegisterController@doRegister');
+Route::get('/login', function(){
+	return View::make('login');
+});
+Route::get('/logout', function(){
+	return View::make('logout');
+});
