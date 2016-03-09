@@ -16,4 +16,5 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('register', 'RegisterController@showRegister');
+Route::get('/register', 'RegisterController@showRegister');
+Route::post('/register', 'RegisterController@doRegister');
