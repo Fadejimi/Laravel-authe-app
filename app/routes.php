@@ -23,7 +23,7 @@ Route::get('/login', function(){
 	return View::make('login');
 });
 Route::post('/login', function(){
-	$credentials = Input::only('username', 'password');
+	$credentials = Input::only('email', 'password');
 	if (Auth::attempt($credentials)){
 		return Redirect::intended('/');
 	}
@@ -39,5 +39,12 @@ Route::get('/spotlight', array(
 	'before' => 'auth',
 	function(){
 		return View::make('spotlight');
+	}
+));
+
+Route::get('/insider', array(
+	'before' => 'auth',
+	function(){
+		return View::make('insider');
 	}
 ));

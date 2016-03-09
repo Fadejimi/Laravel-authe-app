@@ -27,8 +27,8 @@
     <h1>Log In</h1>
     <article class="post">
       {{ Form::open(array('url' => 'login')) }}
-              {{ Form::label('username', 'Username') }}
-              {{ Form::text('username') }}
+              {{ Form::label('email', 'Email') }}
+              {{ Form::text('email') }}
 
               {{ Form::label('password', 'Password') }}
               {{ Form::password('password') }}
