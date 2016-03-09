@@ -18,9 +18,26 @@ Route::get('/', function()
 
 Route::get('/register', 'RegisterController@showRegister');
 Route::post('/register', 'RegisterController@doRegister');
+
 Route::get('/login', function(){
 	return View::make('login');
 });
+Route::post('/login', function(){
+	$credentials = Input::only('username', 'password');
+	if (Auth::attempt($credentials)){
+		return Redirect::intended('/');
+	}
+	return Redirect::to('/login');
+});
+
 Route::get('/logout', function(){
+	Auth::logout();
 	return View::make('logout');
 });
+
+Route::get('/spotlight', array(
+	'before' => 'auth',
+	function(){
+		return View::make('spotlight');
+	}
+));
